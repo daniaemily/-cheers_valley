@@ -1,0 +1,11 @@
+<h1>All Wineries</h1>
+
+<%= @wineries.each do |winery| %>
+<%= link_to winery_path(winery) do %>
+  <h2><%= winery.name %></h2>
+<% end %>
+<!-- <p><%= winery.open_hours %></p> -->
+<p>Can I tour the winery? <%= winery.tours %></p>
+<%= link_to "More details", winery_path(winery) %>
+<%= link_to "Remove Winery", winery_path(winery), method: :delete %>
+<% end %>

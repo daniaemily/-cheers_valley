@@ -1,0 +1,7 @@
+<%= form_for @winery do |f| %>
+  <%= f.label :name, "Enter a name" %>
+  <%= f.text_field :name %>
+  <%= f.label :tours, "Are tours available? " %>
+  <%= f.text_field :tours %>
+  <%= f.submit %>
+<% end %>
