@@ -3,10 +3,25 @@ class WineriesController < ApplicationController
   before_action :set_winery, only: [:show, :edit, :update, :destroy]
 
   def index
-    @wineries = Winery.all
+    # @wineries = Winery.all
+    if @wineries = Winery.where.not(latitude: nil, longitude: nil)
+
+        @markers = @wineries.map do |winery|
+          {
+            lat: winery.latitude,
+            lng: winery.longitude,
+            # infoWindow: { content: render_to_string(partial: "/winery/map_box", locals: { winery: winery }) }
+          }
+        end
+    else
+      @wineries = Winery.all
+    end
   end
+
   def show
+    @winery_coordinates = { lat: @winery.latitude, lng: @winery.longitude }
   end
+
   def new
     @winery = Winery.new
   end
@@ -32,7 +47,7 @@ class WineriesController < ApplicationController
   private
 
   def winery_params
-    params.require(:winery).permit(:name, :tours)
+    params.require(:winery).permit(:name, :tours, :address)
   end
 
   def set_winery
