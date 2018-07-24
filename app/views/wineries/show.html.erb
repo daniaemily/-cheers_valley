@@ -1,4 +1,43 @@
+<%= content_for(:title) do %>
+  Cheers Valley - <%= @winery.name %>
+<% end %>
+
 <h2><%= @winery.name %></h2>
 <p><%= @winery.tours %></p>
+<p><%= @winery.address %></p>
 
 <%= link_to "Back to all wineries", wineries_path %>
+<!-- <div id="map"></div>
+
+<script src="http://maps.google.com/maps/api/js?"></script>
+
+<script type="text/javascript">
+  $(document).on('ready', function() {
+    var handler = Gmaps.build('Google', { markers: { clusterer: undefined }});
+    handler.buildMap({ internal: { id: 'map' } }, function(){
+      markers = handler.addMarkers([
+        ])
+      });
+    handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
+</script> -->
+
+<html>
+  <body>
+    <div id="map" style="height:100%">
+      <script>
+        var map;
+        function initMap() {
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 8
+          });
+        }
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=GOOGLE_API_BROWSER_KEY&callback=initMap"
+      async defer></script>
+    </div>
+  </body>
+</html>
+
