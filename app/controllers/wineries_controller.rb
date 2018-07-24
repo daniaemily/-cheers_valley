@@ -6,12 +6,13 @@ class WineriesController < ApplicationController
     # @wineries = Winery.all
     if @wineries = Winery.where.not(latitude: nil, longitude: nil)
 
-      @markers = @wineries.map do |winery|
-        {
-          lat: winery.latitude,
-          lng: winery.longitude
-        }
-      end
+        @markers = @wineries.map do |winery|
+          {
+            lat: winery.latitude,
+            lng: winery.longitude,
+            # infoWindow: { content: render_to_string(partial: "/winery/map_box", locals: { winery: winery }) }
+          }
+        end
     else
       @wineries = Winery.all
     end
