@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
     <title>Winery Guide - Cheers Valley</title>
     <title><%= yield(:title) %></title>
     <%= csrf_meta_tags %>
@@ -18,10 +20,8 @@
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-    <%= javascript_pack_tag "maps" %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
-
-
+    <%= javascript_pack_tag "maps" %>
     <%= yield(:after_js) %>
   </body>
 </html>
