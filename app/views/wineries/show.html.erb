@@ -1,12 +1,19 @@
-<%= content_for(:title) do %>
-  Cheers Valley - <%= @winery.name %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs=12 col-sm-4">
+      <%= content_for(:title) do %>
+      Cheers Valley - <%= @winery.name %>
+      <% end %>
 
-<h2><%= @winery.name %></h2>
-<p><%= @winery.tours %></p>
-<p><%= @winery.address %></p>
+      <h2><%= @winery.name %></h2>
+        <p><%= @winery.tours %></p>
+        <p><%= @winery.address %></p>
+      <%= cl_image_tag @winery.photo, height: 300, width: 400, crop: :fill %>
 
-<%= link_to "Back to all wineries", wineries_path %>
+      <%= link_to "Back to all wineries", wineries_path %>
+    </div>
+  </div>
+</div>
 
 
 

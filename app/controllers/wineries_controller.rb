@@ -47,7 +47,7 @@ class WineriesController < ApplicationController
   private
 
   def winery_params
-    params.require(:winery).permit(:name, :tours, :address)
+    params.require(:winery).permit(:name, :tours, :address, :photo)
   end
 
   def set_winery
