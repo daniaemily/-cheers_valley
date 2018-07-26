@@ -1,0 +1,12 @@
+<div class="search-wineries">
+ <%= form_tag(wineries_path, method: :get, class: "form-inline", role: "search") do %>
+ <div class="search-input">
+  <%= text_field_tag :term,
+    params[:term],
+    id: 'wineries_search',
+    autocomplete: :off,
+    placeholder: 'Search NOWWW',
+    class: 'form-control'%>
+  <% end %>
+ </div>
+</div>
