@@ -7,7 +7,7 @@ class WineriesController < ApplicationController
     @wineries = if search
       Winery.search(search)
     else
-      Winery.all
+      Winery.paginate(:page => params[:page], :per_page => 12)
     end
     @markers = @wineries.map do |winery|
        {
