@@ -7,6 +7,7 @@ gem 'cloudinary'
 gem 'devise'
 gem "figaro"
 gem "geocoder"
+gem 'httparty'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
@@ -28,6 +29,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'byebug'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'listen', '~> 3.0.5'

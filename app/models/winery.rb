@@ -1,3 +1,5 @@
+# require_relative "./winescraper"
+
 class Winery < ApplicationRecord
   # validates :name, presence :true
   geocoded_by :address
@@ -10,5 +12,9 @@ class Winery < ApplicationRecord
       name: name,
       address: address
     }
+  end
+
+  def winery_scraper
+    winescraper
   end
 end
