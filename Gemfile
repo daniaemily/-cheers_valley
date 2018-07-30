@@ -23,6 +23,7 @@ gem 'searchkick', '~> 3.0'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'will_paginate'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

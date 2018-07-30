@@ -1,4 +1,4 @@
-# require_relative "./winescraper"
+require_relative "../../bin/winescraper"
 
 class Winery < ApplicationRecord
   # validates :name, presence :true
@@ -16,5 +16,9 @@ class Winery < ApplicationRecord
 
   def winery_scraper
     winescraper
+  end
+
+  def self.import_wineries
+    all_wineries = WineScraper.get_all_wineries
   end
 end
