@@ -7,5 +7,9 @@
   <%= f.text_field :address %>
   <%= f.label :photo %>
   <%= f.file_field :photo_cache %>
+  <%= f.label :open_hours, "Open at: " %>
+  <%= f.text_field :open_hours %>
+  <%= f.label :close_time, "Closed at: " %>
+  <%= f.text_field :close_time %>
   <%= f.submit %>
 <% end %>

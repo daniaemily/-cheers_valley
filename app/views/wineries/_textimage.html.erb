@@ -9,6 +9,15 @@
           <p>Can I tour the winery? <%= winery.tours %></p>
           </p>
           <p>
+            Open at: <%= winery.open_hours %>
+          </p>
+          <p>
+            Closes at: <%= winery.close_time %>
+          </p>
+          <p>
+            Price Range : budget, good, luxury
+          </p>
+          <p>
           <%= link_to "More details", winery_path(winery) %>
           <%= link_to "Remove Winery", winery_path(winery), method: :delete %>
           </p>

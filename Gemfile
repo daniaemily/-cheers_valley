@@ -7,6 +7,7 @@ gem 'cloudinary'
 gem 'devise'
 gem "figaro"
 gem "geocoder"
+gem 'httparty'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
@@ -16,6 +17,7 @@ gem 'redis'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-sass', '~> 5.0.9'
+gem 'nokogiri'
 gem 'sass-rails'
 gem 'searchkick', '~> 3.0'
 gem 'simple_form'
@@ -27,6 +29,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'byebug'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'listen', '~> 3.0.5'
