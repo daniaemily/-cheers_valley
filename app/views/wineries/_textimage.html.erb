@@ -18,6 +18,10 @@
             Price Range : budget, good, luxury
           </p>
           <p>
+            Are there tastings or tours?
+            <%= winery.tours %>
+          </p>
+          <p>
           <%= link_to "More details", winery_path(winery) %>
           <%= link_to "Remove Winery", winery_path(winery), method: :delete %>
           </p>

@@ -28,7 +28,7 @@ class WineScraper
         winery = {
           name: winery_listing.css('h4').text,
           address: winery_listing.css('h6').text,
-          # tastings: winery_listing.css('h3').text,
+          # tastings: winery_listing.css('h3').text
           # tourtesting: winery_listing.css('li').text,
           # prices: winery_listing.css('.bizdetail__price').text,
           # url: "https://www.napavalley.com/businesses?category=Wineries&tags=napa" + winery_listing.css('a')[0].attributes["href"].value
