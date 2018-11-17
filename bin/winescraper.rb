@@ -9,6 +9,8 @@ class WineScraper
     unparsed_page = HTTParty.get(url)
     parsed_page = Nokogiri::HTML(unparsed_page)
     all_wineries = Array.new
+    all_tastings = Array.new
+    all_tours = Array.new
     winery_listings = parsed_page.css('.article-secondary') #amount on the page
     page = 1
     per_page = winery_listings.count #40
@@ -25,19 +27,23 @@ class WineScraper
       pagination_winery_listings = pagination_parsed_page.css('.article-secondary')
 
       pagination_winery_listings.each do |winery_listing|
+        prices = winery_listing.css('.bizdetail__price').text.index("From")
+        has_tours = winery_listing.css('li').text.index("Tour")
+        has_tastings = winery_listing.css('li').text.index("Tasting") ? true : nil
         winery = {
           name: winery_listing.css('h4').text,
           address: winery_listing.css('h6').text,
+          tastings: has_tastings,
+          prices: prices
           # tastings: winery_listing.css('h3').text
-          # tourtesting: winery_listing.css('li').text,
-          # prices: winery_listing.css('.bizdetail__price').text,
           # url: "https://www.napavalley.com/businesses?category=Wineries&tags=napa" + winery_listing.css('a')[0].attributes["href"].value
         }
         all_wineries << winery
+
         puts "Added #{winery[:name]}"
-        # puts "Added #{winery[:tastings]}"
+        puts "Check out the tastings:  #{winery[:tastings]}"
         puts "Added #{winery[:prices]}"
-        puts "Do you need a reservation? #{winery[:tourtesting]}"
+        # puts "Do you need a reservation? #{winery[:tourtesting]}"
         puts ""
       end
       page += 1
