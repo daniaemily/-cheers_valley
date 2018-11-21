@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+  get 'pages/home'
+
+
+  #keep below it is entire app!!
   devise_for :users
-  root to: 'wineries#index'
+  root to: 'pages#home'
+  # root to: 'wineries#index'
 
   resources :wineries do
     collection do
